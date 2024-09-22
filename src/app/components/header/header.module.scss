@@ -1,0 +1,35 @@
+@import '../../styles/variables.module.scss';
+
+.header {
+  padding-bottom: 2.4rem;
+  border-bottom: 1px solid $goal-item-border;
+  max-width: 1328px;
+  width: 100%;
+  margin: auto;
+
+  img {
+    width: 100%;
+    max-width: 15rem;
+    height: fit-content;
+  }
+
+  h1 {
+    font-size: clamp(1.6rem, 2vw, 2.4rem);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  p {
+    color: $text-secondary-color;
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      margin-bottom: 0;
+    }
+  }
+}

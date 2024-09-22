@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lista de Tarefas
 
-## Getting Started
+Bem-vindo ao projeto de Lista de Tarefas! Este README fornece uma visão geral dos principais pontos do site, incluindo acessibilidade, funcionalidades e tecnologias utilizadas.
 
-First, run the development server:
+## Índice
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Descrição](#descrição)
+- [Funcionalidades](#funcionalidades)
+- [Acessibilidade](#acessibilidade)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Como Usar](#como-usar)
+- [Licença](#licença)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Descrição
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Este projeto é uma aplicação de lista de tarefas desenvolvida como parte de um teste para uma vaga de emprego. O objetivo é demonstrar habilidades em desenvolvimento web, incluindo acessibilidade e uso de tecnologias modernas.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Funcionalidades
 
-## Learn More
+- Adicionar, editar e remover tarefas
+- Marcar tarefas como concluídas
+- Filtrar tarefas por status (todas, concluídas, pendentes)
+- Interface intuitiva e responsiva
 
-To learn more about Next.js, take a look at the following resources:
+## Acessibilidade
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Nosso compromisso com a acessibilidade inclui:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Leitor de Tela**: Implementação de atributos ARIA para garantir que o site seja totalmente navegável e utilizável por leitores de tela.
+- **Contraste de Cores**: Utilização de uma paleta de cores com alto contraste para garantir a legibilidade.
+- **Navegação por Teclado**: O site pode ser totalmente navegado usando apenas o teclado.
+- **Estrutura Semântica**: Uso de tags HTML semânticas para melhorar a navegação e a compreensão do conteúdo.
 
-## Deploy on Vercel
+## Tecnologias Utilizadas
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Next.js**: Framework React para renderização do lado do servidor e geração de sites estáticos.
+- **Zustand**: Gerenciamento de estado simples e escalável.
+- **Lucide React**: bibloteca de icones da lucide Icons.
+- **Sass**: Pré-processador CSS para estilização eficiente e modular.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Como Usar
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/usuario/lista-de-tarefas.git
+   ```
+2. Instale as dependências:
+   ```bash
+   cd lista-de-tarefas
+   npm install
+   ```
+3. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+

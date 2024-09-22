@@ -1,0 +1,74 @@
+@import '../../styles/variables.module.scss';
+
+$transition: 140ms ease-in;
+
+.goal_item,
+.goal_item > div {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.goal_item.goal_completed label {
+  text-decoration: line-through;
+  color: $text-secondary-color;
+}
+
+.goal_item {
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+  border: 1px dashed $goal-item-border;
+  justify-content: space-between;
+
+  &:focus-within,
+  &:hover {
+    background-color: #F7F9FD;
+  }
+}
+
+.input_check {
+  pointer-events: none;
+  position: absolute;
+  visibility: hidden;
+}
+
+.button_check {
+  border: 1px solid $goal-item-border;
+  border-radius: 0.5rem;
+  padding: 0.3rem;
+  background-color: transparent;
+
+  svg {
+    opacity: 0;
+    transition: $transition;
+    color: $goal-checked-border;
+  }
+
+  &:focus {
+    outline-color: $goal-checked-border;
+  }
+
+  &.checked {
+    border-color: $goal-checked-border;
+    background-color: $goal-checked-bg;
+    transition: $transition;
+
+    svg {
+      opacity: 1;
+    }
+  }
+}
+
+.delete_goal_button {
+  svg {
+    color: $text-color-icons;
+  }
+
+  &:focus {
+    outline: none;
+
+    svg {
+      color: $delete-color;
+    }
+  }
+}

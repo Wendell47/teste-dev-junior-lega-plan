@@ -1,0 +1,21 @@
+
+.loading_wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg{
+        stroke: gray;
+        animation: 1s loading infinite ease ;
+    }
+}
+
+@keyframes loading {
+    from{
+        transform: rotate(0deg);
+    }
+
+    to{
+        transform: rotate(360deg);
+    }
+}

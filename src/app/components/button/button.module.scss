@@ -1,0 +1,45 @@
+@import '../../styles/variables.module.scss';
+
+.button {
+  border-radius: 1rem;
+  padding: 2rem;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  transition: 140ms;
+
+  &:focus {
+    outline-color: transparent;
+    box-shadow: inset 0 0 0 4px white;
+  }
+
+  &.primary {
+    background: $button-primary-bg;
+    color: white;
+
+    &:focus {
+      outline-color: $button-focus-border-color;
+    }
+  }
+
+  &.secondary {
+    background: #E7EEFB;
+
+    &:focus {
+      outline-color: $text-color-icons;
+    }
+  }
+
+  &.delete {
+    color: white;
+    background: $button-delete-bg;
+
+    &:focus {
+      outline-color: $delete-color;
+    }
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
