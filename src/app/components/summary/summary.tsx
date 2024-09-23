@@ -3,47 +3,17 @@ import Button from "../button/button";
 import GoalItem from "../taskItem/tasklItem";
 import style from "./summary.module.scss";
 import NewTaskFormDialog from "../addNewTask/newTaskFormDialog";
-import { useEffect, useState } from "react";
-import { useDialogOpen } from "@/app/hooks/useDialogOpen";
-import { type taskProps, useTaskStore } from "@/app/hooks/stores/useTaskStore";
+import { useTaskStore } from "@/app/hooks/stores/useTaskStore";
 import EmptyTasks from "../emptyTasks/emptyTasks";
 import Loading from "../loading/loading";
+import { useHandleLocalStorage } from "@/app/hooks/useHandleLocalStorage";
+import { useTaskDialog } from "@/app/hooks/useHandleDialogMode";
 
 export default function Summary() {
-	const { dialogRef } = useDialogOpen();
-	const { tasks, setTasks } = useTaskStore();
-	const [isLoading, setIsLoading] = useState(true);
-	const [isDeleteDialog, setIsDeleteDialog] = useState(false);
-	const [TaskId, setTaskId] = useState("");
-
-	useEffect(() => {
-		function fetchLocalStorageData() {
-			const storedTasks = localStorage.getItem("Tasks");
-
-			if (storedTasks) {
-				try {
-					const parsedTasks: taskProps[] = JSON.parse(storedTasks);
-					setTasks(parsedTasks);
-				} catch (error) {
-					console.error("Erro ao analisar os dados do localStorage:", error);
-				}
-			}
-			setIsLoading(false);
-		}
-		fetchLocalStorageData();
-	}, [setTasks]);
-
-	function handleNewGoal() {
-		console.log(tasks);
-		setIsDeleteDialog(false);
-		dialogRef?.current?.showModal();
-	}
-
-	function handleDeleteDialog(id: string) {
-		setIsDeleteDialog(true);
-		setTaskId(id);
-		dialogRef?.current?.showModal();
-	}
+	const { tasks } = useTaskStore();
+	const { taskId, isDeleteDialog, handleDeleteDialog, handleNewTaskDialog } =
+		useTaskDialog();
+	const { isLoading } = useHandleLocalStorage();
 
 	const filteredTasks = [
 		{
@@ -88,11 +58,11 @@ export default function Summary() {
 					<Loading />
 				)}
 			</div>
-			<Button title="Adicionar nova tarefa" onClick={handleNewGoal} />
+			<Button title="Adicionar nova tarefa" onClick={handleNewTaskDialog} />
 
 			<NewTaskFormDialog
 				DialogMode={!isDeleteDialog ? "Adicionar Tarefa" : "Deletar Tarefa"}
-				DeleteTaskId={TaskId}
+				DeleteTaskId={taskId}
 			/>
 		</>
 	);
