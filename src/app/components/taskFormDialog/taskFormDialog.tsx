@@ -3,7 +3,7 @@ import { useDialogOpen } from "@/app/hooks/useDialogOpen";
 import { DialogRoot } from "../dialog/dialog";
 import Button from "../button/button";
 import Input from "../input/input";
-import style from "./newTaskFormDialog.module.scss";
+import style from "./taskFormDialog.module.scss";
 import { type taskProps, useTaskStore } from "@/app/hooks/stores/useTaskStore";
 import { v4 as uuid } from "uuid";
 import { type FormEvent, useState } from "react";

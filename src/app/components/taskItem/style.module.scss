@@ -2,22 +2,22 @@
 
 $transition: 140ms ease-in;
 
-.goal_item,
-.goal_item > div {
+.task_item,
+.task_item > div {
   display: flex;
   gap: 2rem;
   align-items: center;
 }
 
-.goal_item.goal_completed label {
+.task_item.task_completed label {
   text-decoration: line-through;
   color: $text-secondary-color;
 }
 
-.goal_item {
+.task_item {
   padding: 2rem 1rem;
   border-radius: 1rem;
-  border: 1px dashed $goal-item-border;
+  border: 1px dashed $task-item-border;
   justify-content: space-between;
 
   &:focus-within,
@@ -33,7 +33,7 @@ $transition: 140ms ease-in;
 }
 
 .button_check {
-  border: 1px solid $goal-item-border;
+  border: 1px solid $task-item-border;
   border-radius: 0.5rem;
   padding: 0.3rem;
   background-color: transparent;
@@ -41,16 +41,16 @@ $transition: 140ms ease-in;
   svg {
     opacity: 0;
     transition: $transition;
-    color: $goal-checked-border;
+    color: $task-checked-border;
   }
 
   &:focus {
-    outline-color: $goal-checked-border;
+    outline-color: $task-checked-border;
   }
 
   &.checked {
-    border-color: $goal-checked-border;
-    background-color: $goal-checked-bg;
+    border-color: $task-checked-border;
+    background-color: $task-checked-bg;
     transition: $transition;
 
     svg {
@@ -59,7 +59,7 @@ $transition: 140ms ease-in;
   }
 }
 
-.delete_goal_button {
+.delete_task_button {
   svg {
     color: $text-color-icons;
   }

@@ -3,19 +3,19 @@ import { Check, Trash } from "lucide-react";
 import style from "./style.module.scss";
 import { useTaskStore } from "@/app/hooks/stores/useTaskStore";
 
-type goalItemProps = {
-	goal: string;
+type taskItemProps = {
+	task: string;
 	id: string;
 	completed?: boolean;
 	deleteTask?: () => void;
 };
 
 export default function TaskItem({
-	goal,
+	task,
 	id,
 	completed,
 	deleteTask,
-}: goalItemProps) {
+}: taskItemProps) {
 	const { completeTask } = useTaskStore();
 
 	const handleCheck = () => {
@@ -24,14 +24,14 @@ export default function TaskItem({
 
 	return (
 		<div
-			className={`${style.goal_item} ${completed ? style.goal_completed : ""}`}
+			className={`${style.task_item} ${completed ? style.task_completed : ""}`}
 		>
 			<div>
 				<button
 					type="button"
 					role="checkbox"
 					aria-checked={completed}
-					title="checkGoal"
+					title="checktask"
 					onClick={handleCheck}
 					className={`${style.button_check} ${completed ? style.checked : ""}`}
 				>
@@ -45,13 +45,13 @@ export default function TaskItem({
 					onChange={handleCheck}
 					checked={completed}
 				/>
-				<label htmlFor={id}>{goal}</label>
+				<label htmlFor={id}>{task}</label>
 			</div>
 
 			<button
-				title="delete Goal"
+				title="delete task"
 				type="button"
-				className={style.delete_goal_button}
+				className={style.delete_task_button}
 				onClick={deleteTask}
 			>
 				<Trash size={24} />

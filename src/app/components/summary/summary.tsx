@@ -1,13 +1,13 @@
 "use client";
 import Button from "../button/button";
-import GoalItem from "../taskItem/tasklItem";
+import TaskItem from "../taskItem/tasklItem";
 import style from "./summary.module.scss";
-import NewTaskFormDialog from "../addNewTask/newTaskFormDialog";
+import NewTaskFormDialog from "../taskFormDialog/taskFormDialog";
 import { useTaskStore } from "@/app/hooks/stores/useTaskStore";
 import EmptyTasks from "../emptyTasks/emptyTasks";
 import Loading from "../loading/loading";
 import { useHandleLocalStorage } from "@/app/hooks/useHandleLocalStorage";
-import { useTaskDialog } from "@/app/hooks/useHandleDialogMode";
+import { useTaskDialog } from "@/app/hooks/useTaskDialog";
 
 export default function Summary() {
 	const { tasks } = useTaskStore();
@@ -39,10 +39,10 @@ export default function Summary() {
 
 										<div className={style.goals_wrapper}>
 											{item.tasks.map((item) => (
-												<GoalItem
+												<TaskItem
 													key={item.id}
 													completed={item.isCompleted}
-													goal={item.task}
+													task={item.task}
 													deleteTask={() => handleDeleteDialog(item.id)}
 													id={item.id}
 												/>
