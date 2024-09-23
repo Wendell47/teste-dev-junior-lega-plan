@@ -1,0 +1,50 @@
+:root {
+	font-size: 62.5%;
+}
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-size: 1.6rem;
+	padding-inline: 2.4rem;
+	padding-top: 2.4rem;
+	display: flex;
+	height: 100dvh;
+	overflow: hidden;
+	
+	&:has(#dialog[open]) {
+		overflow: hidden;
+	}
+
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+	
+	main {
+		display: flex;
+		flex-direction: column;
+		flex:1;
+		align-items: center;
+	}
+
+	button {
+		display: flex;
+		border: none;
+		background: none;
+		cursor: pointer;
+	}
+	
+	input,
+	button {
+		font-family: "inter", sans-serif;
+	}
+	
+}
+
+
+

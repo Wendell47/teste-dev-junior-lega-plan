@@ -2,7 +2,7 @@
 import Header from "./components/header/Header";
 import Summary from "./components/summary/summary";
 import Welcome from "./components/Welcome/Welcome";
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 import { useGetUser } from "./hooks/useGetUser";
 export default function Home() {
 	const { user, isLoading } = useGetUser();
