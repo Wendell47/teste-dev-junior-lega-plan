@@ -9,6 +9,7 @@
   transition: 140ms;
 
   &:focus {
+    outline: 2px solid;
     outline-color: transparent;
     box-shadow: inset 0 0 0 4px white;
   }
