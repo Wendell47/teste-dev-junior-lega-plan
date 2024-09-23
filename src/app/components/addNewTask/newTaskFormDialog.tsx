@@ -6,7 +6,7 @@ import Input from "../input/input";
 import style from "./newTaskFormDialog.module.scss";
 import { type taskProps, useTaskStore } from "@/app/hooks/stores/useTaskStore";
 import { v4 as uuid } from "uuid";
-import { type FormEvent, useEffect, useState } from "react";
+import { type FormEvent, useState } from "react";
 
 type props = {
 	DialogMode?: "Adicionar Tarefa" | "Deletar Tarefa";
@@ -17,18 +17,11 @@ export default function NewTaskFormDialog({
 	DialogMode = "Adicionar Tarefa",
 	DeleteTaskId,
 }: props) {
-	const { dialogRef, setIsActive } = useDialogOpen();
+	const { dialogRef } = useDialogOpen();
 	const [newTask, setNewTask] = useState("");
-	const { tasks, setTask, removeTask } = useTaskStore();
-
-	useEffect(() => {
-		if (tasks.length > 0) {
-			localStorage.setItem("Tasks", JSON.stringify(tasks));
-		}
-	}, [tasks]);
+	const { setTask, removeTask } = useTaskStore();
 
 	function CloseModal() {
-		setIsActive(false);
 		dialogRef?.current?.close();
 	}
 
@@ -52,6 +45,7 @@ export default function NewTaskFormDialog({
 			task: newTask,
 		};
 		setTask(task);
+
 		setNewTask("");
 		dialogRef?.current?.close();
 	}
@@ -68,6 +62,7 @@ export default function NewTaskFormDialog({
 									name="Titulo"
 									placeholder="Digite"
 									required
+									value={newTask}
 									onChange={(current) => setNewTask(current.target.value)}
 								/>
 								<div className={style.buttons_wrapper}>
@@ -87,6 +82,7 @@ export default function NewTaskFormDialog({
 									<Button
 										title="Cancelar"
 										variable="secondary"
+										autoFocus
 										onClick={CloseModal}
 									/>
 									<Button
