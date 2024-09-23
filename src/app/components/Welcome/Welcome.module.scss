@@ -1,0 +1,20 @@
+@import '../../styles/variables.module.scss';
+
+.welcome{    
+    width: 100%;
+    max-width: 450px;
+    padding: 2.4rem;
+    border: 1px solid $goal-item-border;
+    border-radius: .4rem;
+    &, form{
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+    }
+   
+    img{
+        width: 50%;
+    }
+
+   
+}
