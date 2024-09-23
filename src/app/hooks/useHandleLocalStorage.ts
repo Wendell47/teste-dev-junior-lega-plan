@@ -1,27 +1,23 @@
 import { useEffect, useState } from "react";
-import { type taskProps, useTaskStore } from "./stores/useTaskStore";
+import { useTaskStore } from "./stores/useTaskStore";
 
 const useHandleLocalStorage = () => {
 	const { tasks, setTasks } = useTaskStore();
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		function fetchLocalStorageData() {
-			const storedTasks = localStorage.getItem("Tasks");
+		const storedTasks = localStorage.getItem("Tasks");
 
-			if (storedTasks) {
-				try {
-					const parsedTasks = JSON.parse(storedTasks);
-					setTasks(parsedTasks);
-				} catch (error) {
-					console.error("Erro ao analisar os dados do localStorage:", error);
-				}
+		if (storedTasks) {
+			try {
+				const parsedTasks = JSON.parse(storedTasks);
+				setTasks(parsedTasks);
+			} catch (error) {
+				console.error("Erro ao analisar os dados do localStorage:", error);
 			}
-
-			setIsLoading(false);
 		}
 
-		fetchLocalStorageData();
+		setIsLoading(false);
 	}, [setTasks]);
 
 	useEffect(() => {
@@ -32,6 +28,5 @@ const useHandleLocalStorage = () => {
 
 	return { isLoading };
 };
-
 
 export { useHandleLocalStorage };
